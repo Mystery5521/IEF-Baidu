@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task6</title>
+    <style>
+        li{
+            background-color: #cd4a48;/* 使li元素横向还可以使用：display:inline-block; */
+            color: #f3f6f7;
+            font-size:20px;
+            text-align:center;
+            padding:5px;
+            margin:5px;
+            float: left;
+            /*width: 10px;*/
+            height: 25px;
+            list-style:none;/* 去掉前面的点 */
+        }
+    </style>
+</head>
+<body>
+    <textarea type="text" id="inNum" rows="3"></textarea>
+    <button id="leftIn">左侧入</button>
+    <button id="rightIn">右侧入</button>
+    <button id="leftOut">左侧出</button>
+    <button id="rightOut">右侧出</button>
+    <button id="change">排序</button>
+    <button id="search">查询</button>
+    <ul id="outNum">
+        <li>11</li>
+        <li>11</li>
+        <li>11</li>
+        <li>11</li>
+    </ul>
+    <script >
+        // 绑定变量
+        var inNum = document.getElementById("inNum");
+        var outNum = document.getElementById("outNum");
+        var leftIn = document.getElementById("leftIn");
+        var rightIn = document.getElementById("rightIn");
+        var leftOut = document.getElementById("leftOut");
+        var rightOut = document.getElementById("rightOut");
+        var change = document.getElementById("change");
+        var search = document.getElementById("search");
+        var arrLi = outNum.getElementsByTagName("li");
+
+        window.onload = function () {
+            changeHight();
+            //var haha = getData();
+            //console.log(haha);
+        }
+
+
+        // 插入数字
+        function leftInsert() {
+            if(inNum.value === ""){
+                alert("输入不能为空");
+            }else{
+                var li =document.createElement("li");
+                li.innerHTML = inNum.value;
+                outNum.insertBefore(li,outNum.firstChild);
+            }
+        }
+
+        function rightInsert() {
+            if(inNum.value === ""){
+                alert("输入不能为空");
+            }else {
+                var li = document.createElement("li");
+                li.innerHTML = inNum.value;
+                outNum.appendChild(li);
+            }
+        }
+        
+        //搜索
+        function sch() {
+            var txt = inNum.value;
+            if(txt === ""){
+                alert("输入不能为空");
+            }else {
+                var liTxt = outNum.children;
+                for(var i=0;i<liTxt.length;i++){
+                    var j =liTxt[i];
+                    var k =j.innerHTML;
+                    if(k.indexOf(txt)>-1){
+                        j.style.backgroundColor = "#f00";
+                        j.style.color = "#fff";
+                    }else{
+                        j.style.backgroundColor ="#cd4a48";
+                        j.style.color = "#f3f6f7";
+                    }
+                }
+            }
+        }
+        
+        
+        /*function leftInsert() {
+            if(inNum.value === ""){
+                alert("请输入一个数字");
+            }else if ((inNum.value>=10)&&(inNum.value<=100)&&(!isNaN(inNum.value))){   //isNaN() 函数用于检查其参数是否是非数字值。如果参数值为 NaN 或字符串、对象、undefined等非数字值则返回 true, 否则返回 false。
+                var lis = outNum.getElementsByTagName('li').length;  //获取li元素个数
+                if(lis>59){
+                    alert("超过60！！！");
+                }else{
+                var li = document.createElement("li");
+                li.innerHTML = inNum.value;
+                //outNum.appendChild(li);
+                outNum.insertBefore(li,outNum.firstChild); //insertBefore() 方法在您指定的已有子节点之前插入新的子节点。
+               }
+            }else {
+                alert("非法输入，请输入10到100数字");
+            }
+        }
+
+        function rightInsert() {
+            if(inNum.value === ""){
+                alert("请输入一个数字");
+            }else if (!isNaN(inNum.value)){
+                var li = document.createElement("li");
+                li.innerHTML = inNum.value;
+                outNum.appendChild(li);
+            }else {
+                alert("非法输入，请输入数字");
+            }
+        }*/
+
+        //将li元素存入数组
+        function getData() {
+            var data = [];
+            for(var i=0;i<arrLi.length;i++){
+                data.push(arrLi[i].innerHTML);
+            }
+            return data;
+        }
+
+        //冒泡排序
+        function maoPao(data) {
+            for(var i=0;i<data.length - 1;i++){
+                for(var j=0;j<data.length - 1;j++){
+                    if(data[j]<data[j+1]){
+                        var temp =data[j];
+                        data[j] = data[j+1];
+                        data[j+1] = temp;
+                    }
+                }
+            }
+            return data;
+        }
+
+        //用data数组替换li元素内容
+        function changeLi(data) {
+            var ulChild = outNum.children;
+            for(var i=0;i<data.length;i++){
+                ulChild[i].innerHTML = data[i];
+            }
+        }
+
+        //变方格
+        function changeHight() {
+            for(var i=0;i<arrLi.length;i++){
+                arrLi[i].style.height=arrLi[i].innerHTML+"px";
+            }
+
+        }
+
+        //删除数字
+        function deleteLeft() {
+            outNum.removeChild(outNum.firstChild);
+        }
+
+        function deleteRight() {
+            outNum.removeChild(outNum.lastChild);
+        }
+
+        //点击li元素删除
+        outNum.addEventListener("click",function(){
+            if(event.target.nodeName.toLowerCase()=="li"){   //toLowerCase() 方法用于把字符串转换为小写;nodeName 属性可依据节点的类型返回其名称;event.target触发当前事件的源对象
+                outNum.removeChild(event.target);
+            }
+        });
+
+
+        //添加点击事件
+        leftIn.onclick  =  function () {
+            leftInsert();
+            changeHight();
+        }
+
+        rightIn.onclick  =  function () {
+            rightInsert();
+            changeHight();
+        }
+
+        leftOut.onclick = function () {
+            var list = document.getElementsByTagName("li");
+            if(list.length>0) {
+                var name = list[0].innerHTML;
+                alert("删除："+ name);
+                deleteLeft();
+            }
+        }
+
+        rightOut.onclick =function () {
+            var list = document.getElementsByTagName("li");
+            if(list.length>0) {
+                var name = list[list.length-1].innerHTML;
+                alert("删除："+ name);
+            deleteRight();
+            }
+        }
+
+        change.onclick =function () {
+            var data = getData();
+            var newData = maoPao(data);
+            changeLi(newData);
+            changeHight();
+
+        }
+
+        search.onclick =function () {
+            sch();
+        }
+
+    </script>
+</body>
+</html>

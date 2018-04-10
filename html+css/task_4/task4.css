@@ -1,0 +1,34 @@
+.main{
+    position: absolute;
+    left: 50%;/* top,left跟根据父元素的宽和高偏移的，而transform: translate(-50%, -50%);是根据自身的宽高偏移 */
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 200px;
+    background-color: #ccc;
+    overflow: hidden;/* 规定当内容溢出元素框时发生的事情 此时隐藏 */
+}
+
+.left-top{
+    position:absolute;
+    top:-50px;
+    left:-50px;/* 参照父元素上边和左边 */
+    width:100px;
+    height:100px;
+    background-color: #fc0;
+    -webkit-border-radius:50px; /* radius为圆角  -webkit和-moz分别支持不同的浏览器 */
+    -moz-border-radius:50px;
+    border-radius:50px;
+}
+
+.right-bottom{
+    position:absolute;
+    bottom: -50px;
+    right: -50px;/* 参照父元素下边和右边 */
+    width:100px;
+    height:100px;
+    background-color: #fc0;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+}

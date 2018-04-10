@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #CCCCFF;
+    font-family: "Microsoft Yahei";
+}
+
+header{
+    background-color: steelblue;
+    height: 70px;
+}
+
+.logo{
+    float: left;
+    margin-left: 20px; /* 设置 p 元素的左外边距 */
+}
+
+.dh{
+    float: right;
+}
+.dh>li{/* 子元素选择器 */
+    float: left;
+    width: 110px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.passage1,.passage2,.passage3,.picture,.last{
+    margin: 2rem;
+    padding: 2rem;
+    background-color: white;
+    border: #9e9e9e 1px solid;
+    box-shadow: #000000 1px 1px 1px;
+}
+
+h3{
+    color: #9e9e9e;
+}
+
+.author{
+    color: #9e9e9e;
+    font-size: 14px;
+}
+
+.content{
+    text-indent:2em;
+}
+
+.list>li{
+    list-style:none;/* 去掉前面的点 */
+}
+
+.picture1{
+    margin: 10px 50px;
+    width: 180px;/* 宽度 */
+    border: #9e9e9e 0.5px solid;
+    text-align: center;
+}
+
+table{
+    width:100%;
+}
+
+th{
+    text-align: left;
+    background-color: black;
+    color: white;
+}
+
+.alt{
+    background-color: #9e9e9e;
+}
+
+.last1{
+    margin: 10px auto;
+    padding: 0px;
+    width: 100%;
+}
+
+.formLabel {
+    padding: 0px;
+    margin: 0px;
+    vertical-align: top;/* 设置元素的垂直对齐方式 */
+    display: inline-block;
+    width: 30%;
+    text-align: right;
+}
+
+.prompt{
+    font-weight: lighter;
+    font-size: 12px;
+    margin-top: -5px;
+}
+
+.last1 select {
+    border-radius: 5px;/* 添加圆角边框 */
+}
+
+.last1 textarea {
+    width: 60%;
+    height: 50px;
+}
+
+.submitBtn{
+    width: 100%;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;/* 规定要显示的光标的类型（形状） */
+}
+
+footer {
+    background-color: black;
+    color: white;
+    height: 50px;
+    text-align: center;
+    padding-top: 20px;
+}

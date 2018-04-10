@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+</head>
+<body>
+
+<h3>污染城市列表</h3>
+<ul id="aqi-list">
+    <!--
+        <li>第一名：福州（样例），10</li>
+          <li>第二名：福州（样例），10</li> -->
+</ul>
+
+<script type="text/javascript">
+
+    var aqiData = [
+        ["北京", 90],
+        ["上海", 50],
+        ["福州", 10],
+        ["广州", 50],
+        ["成都", 90],
+        ["西安", 100]
+    ];
+
+    (function () {
+
+        /*
+        在注释下方编写代码
+        遍历读取aqiData中各个城市的数据
+        将空气质量指数大于60的城市显示到aqi-list的列表中
+        */
+        var oul = document.getElementById("aqi-list");
+        for(var i=0;i<aqiData.length;i++){
+            //console.log(aqiData[i][1]);
+            if(aqiData[i][1]>60){
+                //创建新元素
+                var oli = document.createElement("li");
+                oli.innerHTML = aqiData[i];
+                //新元素插入页面元素的内部后面
+                oul.appendChild(oli);
+
+            }
+        }
+
+        /*
+            filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
+            注意： filter() 不会对空数组进行检测。
+            注意： filter() 不会改变原始数组。
+            如：var b=aqiData.filter(function(a){return a[1]>60;});//选择出空气质量大于60的城市，赋值给数组b
+            */
+
+
+    })();
+
+</script>
+</body>
+</html>

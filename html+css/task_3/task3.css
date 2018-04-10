@@ -1,0 +1,44 @@
+body{
+    padding: 20px;/* 设置所有内边距属性 */
+    font-size: 15px;/* 设置字体的尺寸 */
+}
+
+.area{
+    margin: 0 auto;/* 置所有外边距属性  0 auto，表示上下边界为0，左右则根据宽度自适应相同值（即居中）  */
+    padding: 20px;
+    background: #eee;
+    border: 1px solid #999;
+    overflow: auto;/* 规定当内容溢出元素框时发生的事情（显示滚动条） */
+    min-width: 600px;/* 设置元素的最小宽度 */
+}
+
+.area1{
+    float: left;
+    padding: 20px;
+    width: 200px;
+    border: 1px solid ;
+}
+
+.area1 h1{
+    float: right;
+    font-size: small;
+}
+
+.area3{
+    float: right;
+    width: 120px;
+    border: 1px solid ;
+    display: block;/* 规定元素应该生成的框的类型 */
+}
+
+.area2{
+    border: 1px solid ;
+    margin-left: 260px;
+    margin-right: 140px;
+    padding: 20px;
+}
+
+.area31{
+    margin: 20px;
+    border: 1px solid #999;
+}
