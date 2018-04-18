@@ -1,0 +1,9 @@
+.main{
+    display: flex;
+    width: 730px;
+    height: 240px;
+    border: 1px solid black;
+}
+.main1,main2{
+
+}
